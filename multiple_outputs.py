@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #       MULTIPLE_OUTPUTS.PY
 #       author : Jada Olivia lynch (June 2022)
 #
@@ -74,8 +75,9 @@ class Run:
 
     def _run_FLEXPART(self)  -> None:
         """executes FLEXPART in src"""
-        run_fp = "cd {src} && ./FLEXPART"
-        os.system(run_fp.format(src = src_dir))
+        src_dir = dir_dict["src/"]
+        execute = "{src}FLEXPART"
+        os.system(execute.format(src = src_dir))
         pass
 
     def _check_time(time) -> None:
@@ -129,10 +131,8 @@ class Run:
     def _change_pathnames(self) -> None:
         """writes to pathnames and changes pathnames. Can easily
            be modified to account for multiple output directories"""
-        src_dir = dir_dict["src/"]
-        pathnames_dir = src_dir + "pathnames"
-        remove_pathnames = "cd {src} && rm pathnames"
-        os.system(remove_pathnames.format(src = src_dir))
+        pathnames_dir = "pathnames"
+        os.system("rm pathnames")
         with open(pathnames_dir, "a+") as PATHNAMES:
             PATHNAMES.write(dir_dict["options/"] + "\n")
             PATHNAMES.write(dir_dict["output/"] + "\n")
@@ -143,8 +143,6 @@ class Run:
     def run(self) -> None:
         """main method, writes to RELEASES, COMMAND (and sometimes pathnames), and
            executes FLEXPART"""
-#        total = self.range * ["."]
-#        self._change_pathnames()
         prepare = "Preparing run no. {index}"
         running = "Running run no. {index}"
         for i in range(1, self.range + 1):
@@ -153,8 +151,6 @@ class Run:
             self._write_to_COMMAND(i); #self._change_pathnames()
             print(running.format(index = i))
             self._run_FLEXPART()
-#            total[i-1] = "#"
-#            print(total)
             time.sleep(2)
         print("Done!")
         pass

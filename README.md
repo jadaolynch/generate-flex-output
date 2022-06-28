@@ -20,11 +20,13 @@
 
       $ python3 multiple_outputs.py
       
+      *you may have to use sudo*
+      
 #### 5. Find output files in the provided output directory
 
 ## Requirements
-1. Python3.8
+1. Python3.9
 2. Pandas 
 
 ## Testing
-Tested on Ubuntu 20.04, Python 3.8.10
+Tested on Ubuntu 20.04, Python 3.10.5

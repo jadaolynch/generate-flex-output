@@ -20,8 +20,6 @@
 
       $ python3 multiple_outputs.py
       
-      *you may have to use sudo*
-      
 #### 5. Find output files in the provided output directory
 
 ## Requirements

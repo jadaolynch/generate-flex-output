@@ -17,7 +17,7 @@
 #
 #       execute from main FLEXPART directory (example : ~/FLEXPART)
 #
-#       requirements : Python 3.8 (at least), os, pandas, time
+#       requirements : Python 3.9 (at least), os, pandas, time
 #
 
 import os
